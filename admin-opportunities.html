@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opportunities | CV MUDAMAS MANDIRI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root {
+      --navy:#07192d; --navy2:#0d2745; --orange:#f47b20; --orange2:#ff9a45;
+      --bg:#f4f7fb; --card:#fff; --ink:#102033; --muted:#6f7c8d; --line:#e4e9f0;
+      --green:#16a36a; --yellow:#d99a13; --red:#d84a4a; --shadow:0 18px 48px rgba(13,39,69,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    .layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+    .sidebar{background:linear-gradient(180deg,var(--navy),#061523);color:#fff;padding:24px 18px;position:sticky;top:0;height:100vh}
+    .brand{display:flex;align-items:center;gap:12px;padding:4px 8px 24px}
+    .mark{width:42px;height:42px;border-radius:12px;background:var(--orange);display:grid;place-items:center;font-weight:900}
+    .brand strong{display:block;font-family:Manrope;font-size:15px;letter-spacing:.08em}
+    .brand span{display:block;color:#aebacc;font-size:10px;letter-spacing:.18em;margin-top:3px}
+    .menu{display:grid;gap:6px}
+    .menu a{padding:12px 13px;border-radius:11px;color:#c6d2df;font-size:13px;font-weight:700}
+    .menu a:hover,.menu a.active{background:rgba(255,255,255,.08);color:#fff}
+    .sidebar-foot{position:absolute;left:18px;right:18px;bottom:18px}
+    .logout{width:100%;border:1px solid rgba(255,255,255,.14);background:transparent;color:#fff;border-radius:10px;padding:11px;font-weight:700;cursor:pointer}
+    .main{min-width:0}
+    .topbar{height:78px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:20}
+    .topbar h1{font:800 22px/1 Manrope;margin:0;color:var(--navy)}
+    .topbar p{margin:5px 0 0;color:var(--muted);font-size:12px}
+    .top-actions{display:flex;gap:10px}
+    .btn{border:0;border-radius:11px;padding:12px 16px;font-weight:800;cursor:pointer}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-secondary{background:#eef3f8;color:var(--navy)}
+    .content{padding:26px 28px 50px}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+    .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+    .stat strong{display:block;font:800 28px Manrope;color:var(--navy);margin-top:7px}
+    .filters{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:1.6fr repeat(2,.7fr);gap:10px;margin-bottom:14px}
+    input,select,textarea{width:100%;border:1px solid #dce3eb;border-radius:10px;padding:11px 12px;outline:none;background:#fff;color:var(--ink)}
+    input:focus,select:focus,textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(244,123,32,.10)}
+    .table-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:14px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:12px}
+    th{background:#f9fbfd;color:#697689;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+    tr:hover td{background:#fcfdff}
+    .pkg{font-weight:800;color:var(--navy);font-size:13px}
+    .sub{display:block;color:var(--muted);margin-top:4px}
+    .badge{display:inline-flex;align-items:center;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800;text-transform:uppercase}
+    .go{background:#e8f7f0;color:#12865a} .review{background:#fff4dc;color:#a66c00} .nogo{background:#fde9e9;color:#b93333}
+    .status{background:#eef3f8;color:#526174}
+    .score{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--navy);color:#fff;font-weight:900}
+    .empty{padding:40px;text-align:center;color:var(--muted)}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(3,14,26,.62);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
+    .modal-backdrop.open{display:flex}
+    .modal{width:min(980px,96vw);max-height:92vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 28px 80px rgba(0,0,0,.24)}
+    .modal-head{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+    .modal-head h2{font:800 22px Manrope;margin:0;color:var(--navy)}
+    .close{border:0;background:#eef3f8;width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:20px}
+    form{padding:20px 22px 24px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .field label{display:block;font-size:11px;font-weight:800;color:#526174;margin-bottom:6px}
+    .full{grid-column:1/-1}
+    .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+    .check{display:flex;gap:8px;align-items:center;border:1px solid var(--line);padding:10px;border-radius:10px;font-size:11px;font-weight:700}
+    .check input{width:auto}
+    .form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+    .toast{position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;padding:13px 16px;border-radius:11px;box-shadow:var(--shadow);display:none;z-index:150}
+    .toast.show{display:block}
+    @media(max-width:980px){.layout{grid-template-columns:1fr}.sidebar{display:none}.stats{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr}.table-card{overflow:auto}}
+    @media(max-width:640px){.content,.topbar{padding-left:16px;padding-right:16px}.stats{grid-template-columns:1fr 1fr}.grid,.checks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">M</div><div><strong>MUDAMAS</strong><span>COMMAND CENTER</span></div></div>
+    <nav class="menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a class="active" href="admin-opportunities.html">Opportunities</a>
+      <a href="#" onclick="return false;">Tender</a>
+      <a href="#" onclick="return false;">Projects</a>
+      <a href="#" onclick="return false;">Suppliers</a>
+      <a href="#" onclick="return false;">Finance</a>
+      <a href="#" onclick="return false;">Funding</a>
+    </nav>
+    <div class="sidebar-foot"><button class="logout" id="logoutBtn">Keluar</button></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><h1>Opportunities</h1><p>Tender & opportunity tracker — INAPROC V6</p></div>
+      <div class="top-actions"><button class="btn btn-primary" id="addBtn">+ Tambah Opportunity</button></div>
+    </header>
+
+    <section class="content">
+      <div class="stats">
+        <div class="stat"><span>Total Pipeline</span><strong id="statPipeline">Rp0</strong></div>
+        <div class="stat"><span>Opportunity Aktif</span><strong id="statActive">0</strong></div>
+        <div class="stat"><span>GO / Preparing</span><strong id="statGo">0</strong></div>
+        <div class="stat"><span>Projected Profit*</span><strong id="statProfit">Rp0</strong></div>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" placeholder="Cari nama paket / instansi...">
+        <select id="statusFilter">
+          <option value="">Semua Status</option>
+          <option value="screening">Screening</option><option value="review">Review</option>
+          <option value="go">GO</option><option value="no_go">NO-GO</option>
+          <option value="preparing">Preparing</option><option value="submitted">Submitted</option>
+          <option value="evaluation">Evaluation</option><option value="won">Won</option>
+          <option value="lost">Lost</option><option value="cancelled">Cancelled</option>
+        </select>
+        <select id="scoreFilter">
+          <option value="">Semua Score</option>
+          <option value="go">GO ≥ 75</option>
+          <option value="review">REVIEW 55–74</option>
+          <option value="nogo">NO-GO &lt; 55</option>
+        </select>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead><tr>
+            <th>Paket</th><th>Nilai</th><th>Deadline</th><th>Margin Est.</th>
+            <th>Score</th><th>Keputusan</th><th>Status</th><th></th>
+          </tr></thead>
+          <tbody id="opportunityRows"></tbody>
+        </table>
+        <div id="emptyState" class="empty" style="display:none">Belum ada opportunity. Tambahkan paket INAPROC pertama Anda.</div>
+      </div>
+      <p style="font-size:10px;color:#8a96a7;margin-top:10px">*Projected Profit pada dashboard ini memakai margin target 20% dari nilai HPS/budget sebagai screening awal, bukan laba final.</p>
+    </section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-head"><h2 id="modalTitle">Tambah Opportunity</h2><button class="close" id="closeModal">×</button></div>
+    <form id="opportunityForm">
+      <input type="hidden" id="recordId">
+      <div class="grid">
+        <div class="field full"><label>Nama Paket *</label><input id="packageName" required></div>
+        <div class="field"><label>Instansi</label><input id="agencyName"></div>
+        <div class="field"><label>Link INAPROC</label><input id="inaprocUrl" type="url" placeholder="https://..."></div>
+        <div class="field"><label>Jenis Pengadaan</label><select id="procurementType"><option>Barang</option><option>Pekerjaan Konstruksi</option><option>Jasa Lainnya</option><option>Jasa Konsultansi</option></select></div>
+        <div class="field"><label>Kategori</label><input id="category" placeholder="ATK / Furniture / Konstruksi / dll"></div>
+        <div class="field"><label>KBKI / KBLI Relevan</label><input id="kbkiKbli"></div>
+        <div class="field"><label>Pagu / Nilai Budget</label><input id="budgetValue" type="number" min="0" step="1000"></div>
+        <div class="field"><label>HPS</label><input id="hpsValue" type="number" min="0" step="1000"></div>
+        <div class="field"><label>Estimasi HPP</label><input id="estimatedHpp" type="number" min="0" step="1000"></div>
+        <div class="field"><label>Deadline Submit</label><input id="submissionDeadline" type="datetime-local"></div>
+        <div class="field"><label>Estimasi Cash-In</label><input id="estimatedCashInDate" type="date"></div>
+        <div class="field"><label>Level Kompetisi</label><select id="competitionLevel"><option value="low">Rendah</option><option value="medium" selected>Sedang</option><option value="high">Tinggi</option></select></div>
+        <div class="field"><label>Risiko Pelaksanaan</label><select id="executionRisk"><option value="low">Rendah</option><option value="medium" selected>Sedang</option><option value="high">Tinggi</option></select></div>
+        <div class="field"><label>Risiko Pembayaran</label><select id="paymentRisk"><option value="low">Rendah</option><option value="medium" selected>Sedang</option><option value="high">Tinggi</option></select></div>
+        <div class="field"><label>Status</label><select id="status"><option value="screening">Screening</option><option value="review">Review</option><option value="go">GO</option><option value="no_go">NO-GO</option><option value="preparing">Preparing</option><option value="submitted">Submitted</option><option value="evaluation">Evaluation</option><option value="won">Won</option><option value="lost">Lost</option><option value="cancelled">Cancelled</option></select></div>
+        <div class="field full"><label>Checklist Screening</label>
+          <div class="checks">
+            <label class="check"><input type="checkbox" id="legalMatch"> Legal / KBLI cocok</label>
+            <label class="check"><input type="checkbox" id="experienceMatch"> Pengalaman cocok</label>
+            <label class="check"><input type="checkbox" id="supplierReady"> Supplier siap</label>
+            <label class="check"><input type="checkbox" id="fundingReady"> Funding siap</label>
+            <label class="check"><input type="checkbox" id="tkdnRequired"> TKDN diwajibkan</label>
+            <label class="check"><input type="checkbox" id="tkdnReady"> TKDN tersedia</label>
+          </div>
+        </div>
+        <div class="field full"><label>Catatan</label><textarea id="notes" rows="4" placeholder="Persyaratan penting, vendor kandidat, risiko, catatan evaluasi..."></textarea></div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="cancelBtn">Batal</button>
+        <button class="btn btn-primary" type="submit" id="saveBtn">Simpan Opportunity</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SUPABASE_URL = "https://xepfsfpkajacsiqnujru.supabase.co";
+const SUPABASE_KEY = "sb_publishable_PQPbNrTA7wuwfBy1NCCNmQ_giXpvc3k";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let currentUser = null;
+let opportunities = [];
+
+const $ = (id) => document.getElementById(id);
+const money = (n) => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n||0));
+const dateText = (v) => v ? new Intl.DateTimeFormat('id-ID',{dateStyle:'medium'}).format(new Date(v)) : '-';
+
+function toast(msg) {
+  $('toast').textContent = msg; $('toast').classList.add('show');
+  setTimeout(()=>$('toast').classList.remove('show'),2600);
+}
+
+function scoreDecision(score) {
+  if (score >= 75) return ['GO','go'];
+  if (score >= 55) return ['REVIEW','review'];
+  return ['NO-GO','nogo'];
+}
+
+function localScore(x) {
+  let s = 0;
+  if(x.legal_match) s+=20;
+  if(x.experience_match) s+=15;
+  if(x.supplier_ready) s+=15;
+  if(x.funding_ready) s+=15;
+  if(!x.tkdn_required || x.tkdn_ready) s+=10;
+  s += x.competition_level==='low'?10:x.competition_level==='medium'?6:2;
+  s += x.execution_risk==='low'?7:x.execution_risk==='medium'?4:0;
+  s += x.payment_risk==='low'?5:x.payment_risk==='medium'?3:0;
+  if(x.estimated_cash_in_date && x.estimated_cash_in_date <= '2026-11-29') s+=3;
+  return Math.max(0,Math.min(100,s));
+}
+
+async function guard() {
+  const { data: { session } } = await db.auth.getSession();
+  if (!session) { location.href='admin-login.html'; return false; }
+  currentUser = session.user;
+
+  const { data: profile, error } = await db.from('profiles').select('role,is_active,full_name').eq('id', currentUser.id).single();
+  if (error || !profile || !profile.is_active || !['super_admin','admin'].includes(profile.role)) {
+    await db.auth.signOut();
+    location.href='admin-login.html';
+    return false;
+  }
+  return true;
+}
+
+async function loadOpportunities() {
+  const {data,error} = await db.from('opportunities').select('*').order('created_at',{ascending:false});
+  if(error) { console.error(error); toast('Gagal memuat opportunities'); return; }
+  opportunities = data || [];
+  render();
+}
+
+function render() {
+  const q = $('searchInput').value.trim().toLowerCase();
+  const st = $('statusFilter').value;
+  const sf = $('scoreFilter').value;
+
+  let rows = opportunities.filter(x => {
+    const text = `${x.package_name||''} ${x.agency_name||''}`.toLowerCase();
+    if(q && !text.includes(q)) return false;
+    if(st && x.status !== st) return false;
+    if(sf==='go' && x.score < 75) return false;
+    if(sf==='review' && (x.score < 55 || x.score >=75)) return false;
+    if(sf==='nogo' && x.score >=55) return false;
+    return true;
+  });
+
+  const tbody = $('opportunityRows');
+  tbody.innerHTML = rows.map(x => {
+    const [decision,cls] = scoreDecision(x.score||0);
+    const base = Number(x.hps_value||x.budget_value||0);
+    const hpp = Number(x.estimated_hpp||0);
+    const margin = base>0 && hpp>0 ? ((base-hpp)/base*100) : 0;
+    return `<tr>
+      <td><span class="pkg">${escapeHtml(x.package_name)}</span><span class="sub">${escapeHtml(x.agency_name||'-')}</span></td>
+      <td><b>${money(base)}</b></td>
+      <td>${dateText(x.submission_deadline)}</td>
+      <td>${margin?margin.toFixed(1)+'%':'-'}</td>
+      <td><span class="score">${x.score||0}</span></td>
+      <td><span class="badge ${cls}">${decision}</span></td>
+      <td><span class="badge status">${(x.status||'').replace('_',' ')}</span></td>
+      <td><button class="btn btn-secondary" style="padding:8px 10px" onclick="editOpportunity('${x.id}')">Edit</button></td>
+    </tr>`;
+  }).join('');
+
+  $('emptyState').style.display = rows.length ? 'none' : 'block';
+
+  const active = opportunities.filter(x => !['lost','cancelled','no_go'].includes(x.status));
+  const pipeline = active.reduce((a,x)=>a+Number(x.hps_value||x.budget_value||0),0);
+  const goCount = opportunities.filter(x=>['go','preparing'].includes(x.status) || x.score>=75).length;
+  const projected = active.reduce((a,x)=>a+(Number(x.hps_value||x.budget_value||0)*0.20),0);
+  $('statPipeline').textContent = money(pipeline);
+  $('statActive').textContent = active.length;
+  $('statGo').textContent = goCount;
+  $('statProfit').textContent = money(projected);
+}
+
+function escapeHtml(s='') {
+  return String(s).replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+
+function openModal() {
+  $('opportunityForm').reset(); $('recordId').value=''; $('modalTitle').textContent='Tambah Opportunity';
+  $('modalBackdrop').classList.add('open');
+}
+
+function closeModal() { $('modalBackdrop').classList.remove('open'); }
+
+window.editOpportunity = function(id) {
+  const x = opportunities.find(o=>o.id===id); if(!x) return;
+  $('recordId').value=x.id; $('modalTitle').textContent='Edit Opportunity';
+  $('packageName').value=x.package_name||''; $('agencyName').value=x.agency_name||'';
+  $('inaprocUrl').value=x.inaproc_url||''; $('procurementType').value=x.procurement_type||'Barang';
+  $('category').value=x.category||''; $('kbkiKbli').value=x.kbki_kbli||'';
+  $('budgetValue').value=x.budget_value||''; $('hpsValue').value=x.hps_value||'';
+  $('estimatedHpp').value=x.estimated_hpp||'';
+  $('submissionDeadline').value=x.submission_deadline ? new Date(x.submission_deadline).toISOString().slice(0,16) : '';
+  $('estimatedCashInDate').value=x.estimated_cash_in_date||'';
+  $('competitionLevel').value=x.competition_level||'medium';
+  $('executionRisk').value=x.execution_risk||'medium';
+  $('paymentRisk').value=x.payment_risk||'medium';
+  $('status').value=x.status||'screening';
+  $('legalMatch').checked=!!x.legal_match; $('experienceMatch').checked=!!x.experience_match;
+  $('supplierReady').checked=!!x.supplier_ready; $('fundingReady').checked=!!x.funding_ready;
+  $('tkdnRequired').checked=!!x.tkdn_required; $('tkdnReady').checked=!!x.tkdn_ready;
+  $('notes').value=x.notes||'';
+  $('modalBackdrop').classList.add('open');
+}
+
+$('opportunityForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const record = {
+    created_by: currentUser.id,
+    package_name:$('packageName').value.trim(),
+    agency_name:$('agencyName').value.trim()||null,
+    inaproc_url:$('inaprocUrl').value.trim()||null,
+    procurement_type:$('procurementType').value,
+    category:$('category').value.trim()||null,
+    kbki_kbli:$('kbkiKbli').value.trim()||null,
+    budget_value:Number($('budgetValue').value||0),
+    hps_value:Number($('hpsValue').value||0),
+    estimated_hpp:Number($('estimatedHpp').value||0),
+    submission_deadline:$('submissionDeadline').value ? new Date($('submissionDeadline').value).toISOString() : null,
+    estimated_cash_in_date:$('estimatedCashInDate').value||null,
+    competition_level:$('competitionLevel').value,
+    execution_risk:$('executionRisk').value,
+    payment_risk:$('paymentRisk').value,
+    status:$('status').value,
+    legal_match:$('legalMatch').checked,
+    experience_match:$('experienceMatch').checked,
+    supplier_ready:$('supplierReady').checked,
+    funding_ready:$('fundingReady').checked,
+    tkdn_required:$('tkdnRequired').checked,
+    tkdn_ready:$('tkdnReady').checked,
+    notes:$('notes').value.trim()||null
+  };
+  record.score = localScore(record);
+
+  $('saveBtn').disabled=true; $('saveBtn').textContent='Menyimpan...';
+  const id=$('recordId').value;
+  let res;
+  if(id) {
+    delete record.created_by;
+    res=await db.from('opportunities').update(record).eq('id',id);
+  } else {
+    res=await db.from('opportunities').insert(record);
+  }
+  $('saveBtn').disabled=false; $('saveBtn').textContent='Simpan Opportunity';
+  if(res.error) { console.error(res.error); toast('Gagal menyimpan: '+res.error.message); return; }
+  closeModal(); toast(id?'Opportunity diperbarui':'Opportunity ditambahkan'); await loadOpportunities();
+});
+
+$('addBtn').addEventListener('click',openModal);
+$('closeModal').addEventListener('click',closeModal);
+$('cancelBtn').addEventListener('click',closeModal);
+$('modalBackdrop').addEventListener('click',(e)=>{if(e.target===$('modalBackdrop')) closeModal();});
+$('searchInput').addEventListener('input',render);
+$('statusFilter').addEventListener('change',render);
+$('scoreFilter').addEventListener('change',render);
+$('logoutBtn').addEventListener('click',async()=>{await db.auth.signOut(); location.href='admin-login.html';});
+
+(async()=>{ if(await guard()) await loadOpportunities(); })();
+</script>
+</body>
+</html>
