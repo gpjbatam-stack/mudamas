@@ -148,6 +148,12 @@
       .content{padding:14px}.stats{grid-template-columns:1fr 1fr}.grid,.checks{grid-template-columns:1fr}
       .modal{max-height:95vh}.field{padding:9px}.btn{padding:9px 10px}
     }
+  
+    .menu a{display:flex;align-items:center;gap:9px}
+    .menu .nav-icon{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;
+      color:#a8bdd1;font-style:normal;font-size:12px;background:rgba(255,255,255,.025);flex:0 0 20px}
+    .menu a span{display:block}
+
   </style>
 
 </head>
@@ -156,12 +162,14 @@
   <aside class="sidebar">
     <div class="brand"><div class="mark">M</div><div><strong>MUDAMAS</strong><span>COMMAND CENTER</span></div></div>
     <nav class="menu">
-      <a href="admin-dashboard.html">Dashboard</a>
-      <a class="active" href="admin-opportunities.html">Opportunities</a>
-<a href="#" onclick="return false;">Projects</a>
-      <a href="#" onclick="return false;">Suppliers</a>
-      <a href="#" onclick="return false;">Finance</a>
-      <a href="#" onclick="return false;">Funding</a>
+      <a href="admin-dashboard.html"><i class="nav-icon">⌂</i><span>Dashboard</span></a>
+      <a class="active" href="admin-opportunities.html"><i class="nav-icon">◎</i><span>Opportunities</span></a>
+      <a href="#" onclick="return false;"><i class="nav-icon">▤</i><span>Projects</span></a>
+      <a href="#" onclick="return false;"><i class="nav-icon">♧</i><span>Suppliers</span></a>
+      <a href="#" onclick="return false;"><i class="nav-icon">⌘</i><span>Finance</span></a>
+      <a href="#" onclick="return false;"><i class="nav-icon">◫</i><span>Funding</span></a>
+      <a href="#" onclick="return false;"><i class="nav-icon">▣</i><span>Documents</span></a>
+      <a href="#" onclick="return false;"><i class="nav-icon">◇</i><span>Company</span></a>
     </nav>
     <div class="sidebar-foot"><button class="logout" id="logoutBtn">Keluar</button></div>
   </aside>
