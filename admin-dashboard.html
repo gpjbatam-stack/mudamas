@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Project Command Center | CV MUDAMAS MANDIRI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <div class="auth-loading" id="authLoading"><div><i></i><span>Memverifikasi session & hak akses...</span></div></div>
+
+  <div class="admin-layout" id="adminApp" hidden>
+    <aside class="admin-sidebar">
+      <a class="side-brand" href="index.html">
+        <img src="logo.png" alt="Logo CV Mudamas Mandiri">
+        <div><strong>MUDAMAS</strong><span>MANDIRI</span></div>
+      </a>
+
+      <nav class="side-nav" aria-label="Menu Admin">
+        <a class="active" href="admin-dashboard.html"><i class="nav-dot"></i>Dashboard</a>
+        <a href="#"><i class="nav-dot"></i>Opportunities</a>
+        <a href="#"><i class="nav-dot"></i>Tender</a>
+        <a href="#"><i class="nav-dot"></i>Projects</a>
+        <a href="#"><i class="nav-dot"></i>Suppliers</a>
+        <a href="#"><i class="nav-dot"></i>Finance</a>
+        <a href="#"><i class="nav-dot"></i>Funding</a>
+        <a href="#"><i class="nav-dot"></i>Documents</a>
+        <a href="#"><i class="nav-dot"></i>Company</a>
+      </nav>
+
+      <div class="side-spacer"></div>
+      <div class="side-user">
+        <strong id="sidebarName">Admin</strong>
+        <span id="sidebarEmail">-</span>
+        <button class="logout-btn" id="logoutButton" type="button">Keluar</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-copy">
+          <strong>Project Command Center</strong>
+          <span>CV MUDAMAS MANDIRI · Internal System</span>
+        </div>
+        <span class="role-pill" id="rolePill">ADMIN</span>
+      </header>
+
+      <div class="admin-content">
+        <section class="welcome">
+          <div class="micro">ADMIN FOUNDATION / PHASE 1</div>
+          <h1>Selamat datang, <span id="welcomeName">Admin</span>.</h1>
+          <p>Authentication aktif. Berikutnya kita akan menghubungkan opportunity, tender, supplier, funding, project execution, dan billing ke database Supabase.</p>
+        </section>
+
+        <section class="stat-grid" aria-label="Ringkasan sistem">
+          <article class="stat-card"><span>Pipeline</span><strong>Rp0</strong><small>Belum ada opportunity</small></article>
+          <article class="stat-card"><span>Submitted</span><strong>0</strong><small>Tender diajukan</small></article>
+          <article class="stat-card"><span>Active Project</span><strong>0</strong><small>Proyek berjalan</small></article>
+          <article class="stat-card"><span>Funding Used</span><strong>Rp0</strong><small>Belum ada pendanaan</small></article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-head"><strong>Opportunity Prioritas</strong><span>Belum terhubung database</span></div>
+            <div class="empty-state"><div><b>Belum ada opportunity.</b><p>Modul ini akan menjadi pusat paket INAPROC, Bid/No-Bid Score, HPP, margin, dan deadline tender.</p></div></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><strong>System Status</strong><span>Foundation</span></div>
+            <div class="quick-list">
+              <div class="quick-item"><strong>Supabase Auth</strong><span>ACTIVE</span></div>
+              <div class="quick-item"><strong>Session Guard</strong><span>ACTIVE</span></div>
+              <div class="quick-item"><strong>Role Check</strong><span>ACTIVE</span></div>
+              <div class="quick-item"><strong>RLS</strong><span>ENABLED</span></div>
+              <div class="quick-item"><strong>Project Modules</strong><span>NEXT PHASE</span></div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin-config.js"></script>
+  <script src="admin-auth.js"></script>
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>
