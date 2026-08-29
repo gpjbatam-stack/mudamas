@@ -7,88 +7,162 @@
   <title>Project Command Center | CV MUDAMAS MANDIRI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
 </head>
-<body class="admin-body">
+<body class="admin-body premium-admin">
   <div class="auth-loading" id="authLoading"><div><i></i><span>Memverifikasi session & hak akses...</span></div></div>
 
   <div class="admin-layout" id="adminApp" hidden>
     <aside class="admin-sidebar">
-      <a class="side-brand" href="index.html">
+      <a class="side-brand" href="index.html" aria-label="Mudamas Mandiri">
         <img src="logo.png" alt="Logo CV Mudamas Mandiri">
-        <div><strong>MUDAMAS</strong><span>MANDIRI</span></div>
+        <div><strong>MUDAMAS</strong><span>MANDIRI</span><small>COMMAND CENTER</small></div>
       </a>
 
+      <div class="side-caption">WORKSPACE</div>
       <nav class="side-nav" aria-label="Menu Admin">
-        <a class="active" href="admin-dashboard.html"><i class="nav-dot"></i>Dashboard</a>
-        <a href="#"><i class="nav-dot"></i>Opportunities</a>
-        <a href="#"><i class="nav-dot"></i>Tender</a>
-        <a href="#"><i class="nav-dot"></i>Projects</a>
-        <a href="#"><i class="nav-dot"></i>Suppliers</a>
-        <a href="#"><i class="nav-dot"></i>Finance</a>
-        <a href="#"><i class="nav-dot"></i>Funding</a>
-        <a href="#"><i class="nav-dot"></i>Documents</a>
-        <a href="#"><i class="nav-dot"></i>Company</a>
+        <a class="active" href="admin-dashboard.html"><i class="nav-icon">⌂</i><span>Dashboard</span></a>
+        <a href="admin-opportunities.html"><i class="nav-icon">◎</i><span>Opportunities</span></a>
+        <a href="#" data-coming="Projects"><i class="nav-icon">▤</i><span>Projects</span></a>
+        <a href="#" data-coming="Suppliers"><i class="nav-icon">♧</i><span>Suppliers</span></a>
+        <a href="#" data-coming="Finance"><i class="nav-icon">⌘</i><span>Finance</span></a>
+        <a href="#" data-coming="Funding"><i class="nav-icon">◫</i><span>Funding</span></a>
+        <a href="#" data-coming="Documents"><i class="nav-icon">▣</i><span>Documents</span></a>
+        <a href="#" data-coming="Company"><i class="nav-icon">◇</i><span>Company</span></a>
       </nav>
 
       <div class="side-spacer"></div>
+
+      <div class="focus-card">
+        <span>FOCUS NOTE</span>
+        <strong>Satu proyek demi satu proyek.</strong>
+        <p>Jaga angka, jaga kualitas, tuntaskan sampai pembayaran.</p>
+      </div>
+
       <div class="side-user">
-        <strong id="sidebarName">Admin</strong>
-        <span id="sidebarEmail">-</span>
+        <div class="avatar" id="sidebarAvatar">A</div>
+        <div class="side-user-copy">
+          <strong id="sidebarName">Admin</strong>
+          <span id="sidebarEmail">-</span>
+        </div>
         <button class="logout-btn" id="logoutButton" type="button">Keluar</button>
       </div>
     </aside>
 
     <main class="admin-main">
       <header class="admin-topbar">
+        <div class="mobile-brand">MUDAMAS</div>
         <div class="topbar-copy">
           <strong>Project Command Center</strong>
-          <span>CV MUDAMAS MANDIRI · Internal System</span>
+          <span>CV MUDAMAS MANDIRI · Internal Management System</span>
         </div>
-        <span class="role-pill" id="rolePill">ADMIN</span>
+        <div class="topbar-right">
+          <div class="top-date"><strong id="todayLabel">-</strong><span id="clockLabel">-</span></div>
+          <span class="role-pill" id="rolePill">ADMIN</span>
+        </div>
       </header>
 
-      <div class="admin-content">
-        <section class="welcome">
-          <div class="micro">ADMIN FOUNDATION / PHASE 1</div>
-          <h1>Selamat datang, <span id="welcomeName">Admin</span>.</h1>
-          <p>Authentication aktif. Berikutnya kita akan menghubungkan opportunity, tender, supplier, funding, project execution, dan billing ke database Supabase.</p>
+      <div class="admin-content premium-content">
+        <section class="hero-dashboard">
+          <div class="hero-copy">
+            <span class="eyebrow">EXECUTIVE WORKSPACE</span>
+            <h1>Selamat datang kembali, <span id="welcomeName">Admin</span>.</h1>
+            <p>Semua peluang, proyek, modal dan hasil kerja Mudamas dipusatkan di sini. Fokus pada paket yang paling layak dan paling berdampak.</p>
+            <div class="hero-actions">
+              <a class="hero-btn primary" href="admin-opportunities.html">+ Tambah Opportunity</a>
+              <button class="hero-btn ghost" type="button" id="refreshDashboard">Refresh Data</button>
+            </div>
+          </div>
+          <div class="hero-focus">
+            <span>TARGET OPERASI</span>
+            <strong id="activeOpportunityHero">0</strong>
+            <small>opportunity aktif</small>
+            <div class="mini-progress"><i id="heroProgress"></i></div>
+            <p id="heroInsight">Belum ada data opportunity.</p>
+          </div>
         </section>
 
-        <section class="stat-grid" aria-label="Ringkasan sistem">
-          <article class="stat-card"><span>Pipeline</span><strong>Rp0</strong><small>Belum ada opportunity</small></article>
-          <article class="stat-card"><span>Submitted</span><strong>0</strong><small>Tender diajukan</small></article>
-          <article class="stat-card"><span>Active Project</span><strong>0</strong><small>Proyek berjalan</small></article>
-          <article class="stat-card"><span>Funding Used</span><strong>Rp0</strong><small>Belum ada pendanaan</small></article>
-        </section>
-
-        <section class="dashboard-grid">
-          <article class="panel">
-            <div class="panel-head"><strong>Opportunity Prioritas</strong><span>Belum terhubung database</span></div>
-            <div class="empty-state"><div><b>Belum ada opportunity.</b><p>Modul ini akan menjadi pusat paket INAPROC, Bid/No-Bid Score, HPP, margin, dan deadline tender.</p></div></div>
+        <section class="stat-grid premium-stats" aria-label="Ringkasan sistem">
+          <article class="stat-card premium-card accent-purple">
+            <div class="stat-icon">◆</div>
+            <div><span>Total Pipeline</span><strong id="pipelineValue">Rp0</strong><small id="pipelineSub">0 opportunity aktif</small></div>
           </article>
-          <article class="panel">
-            <div class="panel-head"><strong>System Status</strong><span>Foundation</span></div>
-            <div class="quick-list">
-              <div class="quick-item"><strong>Supabase Auth</strong><span>ACTIVE</span></div>
-              <div class="quick-item"><strong>Session Guard</strong><span>ACTIVE</span></div>
-              <div class="quick-item"><strong>Role Check</strong><span>ACTIVE</span></div>
-              <div class="quick-item"><strong>RLS</strong><span>ENABLED</span></div>
-              <div class="quick-item"><strong>Project Modules</strong><span>NEXT PHASE</span></div>
+          <article class="stat-card premium-card accent-blue">
+            <div class="stat-icon">↗</div>
+            <div><span>Submitted / Evaluation</span><strong id="submittedValue">0</strong><small>Paket dalam proses</small></div>
+          </article>
+          <article class="stat-card premium-card accent-green">
+            <div class="stat-icon">✓</div>
+            <div><span>GO Priority</span><strong id="goValue">0</strong><small id="goSub">Score ≥ 75</small></div>
+          </article>
+          <article class="stat-card premium-card accent-orange">
+            <div class="stat-icon">Rp</div>
+            <div><span>Est. Gross Margin</span><strong id="profitValue">Rp0</strong><small>HPS dikurangi estimasi HPP</small></div>
+          </article>
+        </section>
+
+        <section class="dashboard-grid dashboard-grid-premium">
+          <article class="panel premium-panel priority-panel">
+            <div class="panel-head premium-panel-head">
+              <div><span class="panel-kicker">DECISION BOARD</span><strong>Opportunity Prioritas</strong></div>
+              <a href="admin-opportunities.html">Lihat Semua →</a>
+            </div>
+            <div id="priorityList" class="priority-list">
+              <div class="skeleton-row"></div><div class="skeleton-row"></div><div class="skeleton-row"></div>
+            </div>
+          </article>
+
+          <article class="panel premium-panel action-panel">
+            <div class="panel-head premium-panel-head">
+              <div><span class="panel-kicker">NEXT ACTION</span><strong>Fokus Hari Ini</strong></div>
+              <span id="healthLabel" class="health-pill">SYSTEM READY</span>
+            </div>
+            <div class="focus-list">
+              <div class="focus-line"><i>01</i><div><strong>Screening paket baru</strong><span>Masukkan setiap peluang sebelum diputuskan GO.</span></div></div>
+              <div class="focus-line"><i>02</i><div><strong>Validasi HPP</strong><span>Pastikan margin tidak hanya terlihat bagus di atas kertas.</span></div></div>
+              <div class="focus-line"><i>03</i><div><strong>Jaga deadline</strong><span>Opportunity prioritas harus punya langkah berikutnya yang jelas.</span></div></div>
             </div>
           </article>
         </section>
+
+        <section class="dashboard-grid dashboard-grid-bottom">
+          <article class="panel premium-panel">
+            <div class="panel-head premium-panel-head">
+              <div><span class="panel-kicker">PIPELINE HEALTH</span><strong>Komposisi Opportunity</strong></div>
+              <span>Real-time Supabase</span>
+            </div>
+            <div class="status-bars">
+              <div class="status-row"><div><span>GO</span><strong id="goCountBar">0</strong></div><div class="bar"><i class="bar-go" id="goBar"></i></div></div>
+              <div class="status-row"><div><span>Review</span><strong id="reviewCountBar">0</strong></div><div class="bar"><i class="bar-review" id="reviewBar"></i></div></div>
+              <div class="status-row"><div><span>No-Go</span><strong id="nogoCountBar">0</strong></div><div class="bar"><i class="bar-nogo" id="nogoBar"></i></div></div>
+            </div>
+          </article>
+
+          <article class="panel premium-panel">
+            <div class="panel-head premium-panel-head">
+              <div><span class="panel-kicker">DEADLINE WATCH</span><strong>Deadline Terdekat</strong></div>
+              <span id="deadlineCount">0 paket</span>
+            </div>
+            <div class="deadline-list" id="deadlineList">
+              <div class="empty-mini">Belum ada deadline.</div>
+            </div>
+          </article>
+        </section>
+
+        <footer class="dashboard-motto">
+          <span>CV MUDAMAS MANDIRI</span>
+          <strong>Fokus. Disiplin. Konsisten. Selesaikan sampai hasil.</strong>
+        </footer>
       </div>
     </main>
   </div>
+
+  <div class="toast" id="adminToast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin-config.js"></script>
   <script src="admin-auth.js"></script>
   <script src="admin-dashboard.js"></script>
-
-<a href="admin-opportunities.html" style="position:fixed;right:22px;bottom:22px;z-index:50;background:#f47b20;color:#fff;padding:12px 16px;border-radius:12px;text-decoration:none;font:700 13px Inter,Arial,sans-serif;box-shadow:0 12px 28px rgba(0,0,0,.18)">Buka Opportunities →</a>
-
 </body>
 </html>
