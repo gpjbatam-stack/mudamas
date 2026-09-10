@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#06182d" />
+  <meta name="theme-color" content="#041426" />
   <meta name="description" content="CV MUDAMAS MANDIRI — General Supplier, Contractor, dan Procurement Service untuk kebutuhan Pemerintah, BUMN, dan Swasta." />
-  <title>CV MUDAMAS MANDIRI | Integrated Procurement Solutions</title>
+  <meta property="og:title" content="CV MUDAMAS MANDIRI | General Supplier • Contractor • Procurement Service" />
+  <meta property="og:description" content="Solusi pengadaan dan pekerjaan dari kebutuhan hingga serah terima." />
+  <meta property="og:image" content="hero-bg.jpg" />
+  <title>CV MUDAMAS MANDIRI | General Supplier • Contractor • Procurement Service</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,11 +27,11 @@
         </div>
       </a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" aria-label="Navigasi utama">
         <a href="#home">Beranda</a>
         <a href="#capabilities">Kapabilitas</a>
         <a href="#categories">Produk</a>
@@ -43,57 +46,86 @@
   <main id="main">
     <section class="hero" id="home">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-noise" aria-hidden="true"></div>
-      <div class="hero-lines" aria-hidden="true">
-        <i class="line l1"></i><i class="line l2"></i><i class="line l3"></i>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow glow-one" aria-hidden="true"></div>
+      <div class="hero-glow glow-two" aria-hidden="true"></div>
+      <div class="hero-vector" aria-hidden="true">
+        <i class="v1"></i><i class="v2"></i><i class="v3"></i><i class="v4"></i>
       </div>
 
       <div class="hero-content">
         <div class="hero-copy reveal">
-          <div class="hero-kicker"><span></span> YOUR STRATEGIC PROCUREMENT PARTNER</div>
+          <div class="hero-kicker"><span></span> GENERAL SUPPLIER • CONTRACTOR • PROCUREMENT SERVICE</div>
           <h1>
-            Satu Mitra untuk<br>
-            <em>Pengadaan, Kontraktor,</em><br>
-            dan <b>Procurement Service.</b>
+            Solusi Pengadaan &amp; Pekerjaan,<br>
+            <em>dari Kebutuhan</em><br>
+            hingga <b>Serah Terima.</b>
           </h1>
           <p>
-            CV MUDAMAS MANDIRI menyediakan solusi pengadaan terintegrasi untuk kebutuhan Pemerintah, BUMN, dan Swasta—mulai dari sourcing, pengadaan barang, koordinasi pemasok, pekerjaan konstruksi, hingga dukungan pelaksanaan dan purna jual.
+            CV MUDAMAS MANDIRI membantu Pemerintah, BUMN, dan Swasta menangani kebutuhan barang maupun pekerjaan secara end-to-end—mulai dari pencarian produk dan pemasok, validasi spesifikasi, penawaran, pengadaan, pelaksanaan, pengiriman, hingga dokumentasi dan serah terima.
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-orange" href="#capabilities">Jelajahi Kapabilitas <span>→</span></a>
-            <a class="btn btn-glass" href="#contact">Hubungi Kami</a>
+            <a class="btn btn-orange" href="#capabilities">Lihat Kemampuan Kami <span>→</span></a>
+            <a class="btn btn-glass" href="#contact">Sampaikan Kebutuhan</a>
           </div>
+
+          <div class="trust-row" aria-label="Segmen layanan">
+            <span>Pemerintah</span><i></i><span>BUMN</span><i></i><span>Swasta</span><i></i><span>Multi-Kategori</span>
+          </div>
+
           <div class="hero-proof">
             <div><strong>2019</strong><span>Berdiri sejak</span></div>
-            <div><strong>40+</strong><span>Pengalaman proyek</span></div>
+            <div><strong>40+</strong><span>Pengalaman pekerjaan</span></div>
             <div><strong>37</strong><span>KBLI aktif</span></div>
-            <div><strong>100+</strong><span>Mitra & principal</span></div>
+            <div><strong>100+</strong><span>Jaringan supplier &amp; principal</span></div>
           </div>
         </div>
 
-        <aside class="hero-command reveal delay-1">
-          <div class="command-head">
+        <aside class="workflow-card reveal delay-1" aria-label="Alur kerja Mudamas">
+          <div class="workflow-head">
             <div>
-              <span class="micro">MUDAMAS CAPABILITY MAP</span>
-              <h2>Kami bisa menangani lebih dari sekadar pengadaan barang.</h2>
+              <span class="micro">MUDAMAS END-TO-END WORKFLOW</span>
+              <h2>Satu alur kerja untuk mengawal kebutuhan sampai selesai.</h2>
             </div>
-            <span class="live-dot">READY</span>
+            <span class="status-pill"><i></i> READY</span>
           </div>
-          <div class="command-grid">
-            <article><span class="cap-icon">01</span><strong>General Supplier</strong><p>Sourcing, quotation, procurement, delivery.</p></article>
-            <article><span class="cap-icon">02</span><strong>Contractor</strong><p>Pekerjaan konstruksi, instalasi, renovasi.</p></article>
-            <article><span class="cap-icon">03</span><strong>Procurement Service</strong><p>Vendor coordination, costing, commercial support.</p></article>
-            <article><span class="cap-icon">04</span><strong>Integrated Solution</strong><p>Dari perencanaan kebutuhan sampai pascapengadaan.</p></article>
+
+          <div class="workflow-steps">
+            <article>
+              <span class="step-no">01</span>
+              <div><strong>Kebutuhan &amp; Konsultasi</strong><p>Scope, spesifikasi, kuantitas, timeline, lokasi dan target biaya.</p></div>
+              <b>01</b>
+            </article>
+            <article>
+              <span class="step-no">02</span>
+              <div><strong>Sourcing &amp; Validasi</strong><p>Pencarian supplier/principal, komparasi produk, harga dan lead time.</p></div>
+              <b>02</b>
+            </article>
+            <article>
+              <span class="step-no">03</span>
+              <div><strong>Pengadaan &amp; Pelaksanaan</strong><p>Procurement, koordinasi vendor, kontraktor, instalasi atau pekerjaan lapangan.</p></div>
+              <b>03</b>
+            </article>
+            <article>
+              <span class="step-no">04</span>
+              <div><strong>Delivery &amp; Serah Terima</strong><p>Pengiriman, dokumentasi, handover dan koordinasi after-sales.</p></div>
+              <b>04</b>
+            </article>
           </div>
-          <div class="sector-strip">
-            <span>Pemerintah</span><span>BUMN</span><span>Swasta</span><span>Nationwide Supply</span><span>TKDN Ready</span>
+
+          <div class="workflow-foot">
+            <span><i></i> Supplier Network</span>
+            <span><i></i> Commercial Control</span>
+            <span><i></i> Project Coordination</span>
           </div>
         </aside>
       </div>
 
-      <div class="hero-bottom">
+      <div class="hero-bottom" aria-hidden="true">
         <div class="ticker-track">
-          <span>GENERAL SUPPLIER</span><i>•</i><span>CONTRACTOR</span><i>•</i><span>PROCUREMENT SERVICE</span><i>•</i><span>TKDN SUPPORT</span><i>•</i><span>NATIONWIDE SUPPLY</span><i>•</i><span>GOVERNMENT • BUMN • PRIVATE</span>
+          <span>GENERAL SUPPLIER</span><i>•</i><span>CONTRACTOR</span><i>•</i><span>PROCUREMENT SERVICE</span><i>•</i><span>SOURCING &amp; RFQ</span><i>•</i><span>VENDOR COORDINATION</span><i>•</i><span>DELIVERY &amp; HANDOVER</span><i>•</i>
+          <span>GENERAL SUPPLIER</span><i>•</i><span>CONTRACTOR</span><i>•</i><span>PROCUREMENT SERVICE</span><i>•</i><span>SOURCING &amp; RFQ</span><i>•</i><span>VENDOR COORDINATION</span><i>•</i><span>DELIVERY &amp; HANDOVER</span><i>•</i>
         </div>
       </div>
     </section>
@@ -102,58 +134,58 @@
       <div class="section-shell">
         <div class="section-title-row reveal">
           <div>
-            <span class="eyebrow">WHAT WE DO</span>
-            <h2>Kapabilitas yang dibuat untuk kebutuhan proyek nyata.</h2>
+            <span class="eyebrow">CORE CAPABILITIES</span>
+            <h2>Bukan sekadar menyediakan barang. <span>Kami mengelola kebutuhan sampai tuntas.</span></h2>
           </div>
           <p>
-            Mudamas memadukan jaringan pemasok, kemampuan sourcing, dukungan produk TKDN, koordinasi teknis, dan pengelolaan pengadaan dalam satu alur kerja yang terstruktur.
+            Karakter Mudamas adalah fleksibel, multi-kategori, dan berorientasi penyelesaian. Kami menggabungkan kemampuan sourcing, jaringan pemasok, kontrol komersial, koordinasi teknis, serta pengelolaan delivery dan pekerjaan dalam satu proses.
           </p>
         </div>
 
         <div class="capability-layout">
-          <article class="cap-feature cap-feature-dark reveal">
-            <span class="cap-no">01</span>
-            <div>
-              <span class="cap-tag">CORE BUSINESS</span>
+          <article class="cap-feature cap-feature-photo cap-supplier reveal">
+            <div class="cap-overlay"></div>
+            <div class="cap-top"><span class="cap-no">01</span><span class="cap-tag">CORE BUSINESS</span></div>
+            <div class="cap-body">
               <h3>General Supplier</h3>
-              <p>Pengadaan berbagai kategori barang untuk kebutuhan proyek dan operasional dengan proses sourcing, perbandingan penawaran, koordinasi supplier, pengiriman, dan dokumentasi.</p>
+              <p>Pengadaan berbagai kategori barang untuk kebutuhan proyek dan operasional dengan proses sourcing, komparasi, pengadaan, delivery, dan dokumentasi.</p>
+              <ul>
+                <li>RFQ &amp; supplier sourcing</li>
+                <li>Komparasi harga &amp; spesifikasi</li>
+                <li>Koordinasi procurement &amp; delivery</li>
+                <li>Dukungan produk TKDN sesuai kebutuhan</li>
+              </ul>
             </div>
-            <ul>
-              <li>RFQ & supplier sourcing</li>
-              <li>Komparasi harga & spesifikasi</li>
-              <li>Pengadaan dan koordinasi delivery</li>
-              <li>Dukungan produk TKDN</li>
-            </ul>
           </article>
 
-          <article class="cap-feature reveal delay-1">
-            <span class="cap-no">02</span>
-            <div>
-              <span class="cap-tag">PROJECT EXECUTION</span>
+          <article class="cap-feature cap-feature-photo cap-contractor reveal delay-1">
+            <div class="cap-overlay"></div>
+            <div class="cap-top"><span class="cap-no">02</span><span class="cap-tag">PROJECT EXECUTION</span></div>
+            <div class="cap-body">
               <h3>Contractor</h3>
-              <p>Pelaksanaan pekerjaan konstruksi dan instalasi secara profesional dengan kontrol progres, kebutuhan material, vendor/subkon, dan dokumentasi serah terima.</p>
+              <p>Pelaksanaan pekerjaan konstruksi, renovasi, instalasi, interior dan pekerjaan pendukung dengan koordinasi material, vendor, progres, serta dokumentasi.</p>
+              <ul>
+                <li>Renovasi &amp; building support</li>
+                <li>Electrical / lighting / installation</li>
+                <li>Interior &amp; fit-out</li>
+                <li>Project &amp; vendor coordination</li>
+              </ul>
             </div>
-            <ul>
-              <li>Pekerjaan renovasi & building support</li>
-              <li>Instalasi electrical / lighting</li>
-              <li>Interior & fit-out</li>
-              <li>Project coordination</li>
-            </ul>
           </article>
 
-          <article class="cap-feature reveal delay-2">
-            <span class="cap-no">03</span>
-            <div>
-              <span class="cap-tag">PROCUREMENT SUPPORT</span>
+          <article class="cap-feature cap-feature-photo cap-procurement reveal delay-2">
+            <div class="cap-overlay"></div>
+            <div class="cap-top"><span class="cap-no">03</span><span class="cap-tag">PROCUREMENT SUPPORT</span></div>
+            <div class="cap-body">
               <h3>Procurement Service</h3>
-              <p>Dukungan pengadaan dari perencanaan kebutuhan hingga proses commercial support, untuk membantu klien mendapatkan produk yang tepat, harga kompetitif, dan proses yang efisien.</p>
+              <p>Dukungan untuk kebutuhan yang memerlukan pencarian produk, supplier intelligence, costing, negosiasi, koordinasi komersial dan after-sales.</p>
+              <ul>
+                <li>Market &amp; supplier intelligence</li>
+                <li>Costing / HPP &amp; quotation support</li>
+                <li>Vendor &amp; principal coordination</li>
+                <li>After-sales coordination</li>
+              </ul>
             </div>
-            <ul>
-              <li>Market & supplier intelligence</li>
-              <li>Costing / HPP & quotation support</li>
-              <li>Vendor coordination</li>
-              <li>After-sales coordination</li>
-            </ul>
           </article>
         </div>
       </div>
@@ -163,71 +195,114 @@
       <div class="section-shell">
         <div class="category-intro reveal">
           <div>
-            <span class="eyebrow orange">PRODUCT & SERVICE CATEGORIES</span>
+            <span class="eyebrow orange">MULTI-CATEGORY PROCUREMENT</span>
             <h2>Banyak kebutuhan.<br><span>Satu pintu procurement.</span></h2>
           </div>
-          <p>Berikut kategori utama yang dapat ditangani Mudamas. Spesifikasi akhir tetap mengikuti kebutuhan paket, ketersediaan supplier, dan ketentuan pengadaan.</p>
+          <p>
+            Mudamas tidak dibatasi pada satu jenis produk. Kami menangani berbagai kategori sesuai spesifikasi paket, kebutuhan operasional, ketersediaan supplier, dan ketentuan pengadaan yang berlaku.
+          </p>
         </div>
 
         <div class="category-grid">
-          <article class="cat reveal"><span>01</span><h3>Furniture & Interior</h3><p>Office furniture, workstation, meeting room, filing, storage, fit-out dan custom furniture.</p></article>
-          <article class="cat reveal"><span>02</span><h3>Building Materials</h3><p>Semen, besi/baja, keramik, sanitary, cat, plafon, gypsum, plumbing, hardware dan material renovasi.</p></article>
-          <article class="cat reveal"><span>03</span><h3>Electrical & Lighting</h3><p>Panel, MCB/MCCB, kabel, lampu LED, pencahayaan, saklar, stop kontak, fitting dan street lighting.</p></article>
-          <article class="cat reveal"><span>04</span><h3>Computer & IT</h3><p>Desktop, laptop, printer, scanner, server, storage, networking, UPS dan accessories.</p></article>
-          <article class="cat reveal"><span>05</span><h3>Telecommunication</h3><p>Network device, structured cabling, wireless, access point, CCTV, access control dan communication equipment.</p></article>
-          <article class="cat reveal"><span>06</span><h3>Textile, Garment & Footwear</h3><p>Seragam dinas, batik, kain, safety wear, APD/PPE, sepatu, boots, sandal dan custom garment.</p></article>
-          <article class="cat reveal"><span>07</span><h3>Printing & Office Supplies</h3><p>ATK, kertas, dokumen, buku/formulir, barang cetakan, printing dan media promosi.</p></article>
-          <article class="cat reveal"><span>08</span><h3>Safety Equipment</h3><p>APD, helmet, vest, gloves, safety shoes, boots, fire safety equipment dan security equipment.</p></article>
-          <article class="cat reveal"><span>09</span><h3>Household Equipment</h3><p>Housekeeping, cleaning equipment, pantry, kitchen equipment, rumah tangga dan facility support.</p></article>
-          <article class="cat reveal"><span>10</span><h3>Electronic Equipment</h3><p>TV/display, AC, audio, sound system dan berbagai peralatan elektronik penunjang.</p></article>
-          <article class="cat reveal"><span>11</span><h3>Industrial & Machinery</h3><p>Mesin industri, pompa, kompresor, genset, engine, alat produksi dan mesin pendukung operasional.</p></article>
-          <article class="cat reveal"><span>12</span><h3>Machine Parts & Accessories</h3><p>Suku cadang mesin, bearing, belt, rantai, seal, spare parts, tools dan maintenance equipment.</p></article>
+          <article class="cat cat-01 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>01</span><h3>Furniture &amp; Interior</h3><p>Office furniture, workstation, meeting room, storage, fit-out dan custom furniture.</p></div></article>
+          <article class="cat cat-02 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>02</span><h3>Building Materials</h3><p>Semen, baja, keramik, sanitary, cat, plafon, gypsum, plumbing dan hardware.</p></div></article>
+          <article class="cat cat-03 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>03</span><h3>Electrical &amp; Lighting</h3><p>Panel, kabel, lampu, MCB/MCCB, street lighting dan komponen elektrikal.</p></div></article>
+          <article class="cat cat-04 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>04</span><h3>Computer &amp; IT</h3><p>Desktop, laptop, printer, server, storage, networking, UPS dan accessories.</p></div></article>
+          <article class="cat cat-05 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>05</span><h3>Telecommunication</h3><p>Network device, cabling, wireless, access point, CCTV dan access control.</p></div></article>
+          <article class="cat cat-06 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>06</span><h3>Textile &amp; Garment</h3><p>Seragam, batik, kain, safety wear, sepatu, boots dan custom garment.</p></div></article>
+          <article class="cat cat-07 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>07</span><h3>Printing &amp; Office</h3><p>ATK, kertas, dokumen, formulir, barang cetakan dan media promosi.</p></div></article>
+          <article class="cat cat-08 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>08</span><h3>Safety Equipment</h3><p>APD, helmet, vest, gloves, safety shoes, fire safety dan security equipment.</p></div></article>
+          <article class="cat cat-09 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>09</span><h3>Household &amp; Facility</h3><p>Housekeeping, cleaning, pantry, kitchen equipment dan facility support.</p></div></article>
+          <article class="cat cat-10 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>10</span><h3>Electronic Equipment</h3><p>TV/display, AC, audio, sound system dan peralatan elektronik pendukung.</p></div></article>
+          <article class="cat cat-11 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>11</span><h3>Industrial &amp; Machinery</h3><p>Pompa, kompresor, genset, engine, mesin industri dan alat operasional.</p></div></article>
+          <article class="cat cat-12 reveal"><div class="cat-shade"></div><div class="cat-copy"><span>12</span><h3>Parts &amp; Accessories</h3><p>Bearing, belt, rantai, seal, spare parts, tools dan maintenance equipment.</p></div></article>
+        </div>
+
+        <div class="category-note reveal">
+          <span>Butuh kategori yang tidak tercantum?</span>
+          <p>Sampaikan spesifikasi atau kebutuhan Anda. Tim Mudamas dapat melakukan sourcing sesuai ruang lingkup pekerjaan.</p>
+          <a href="#contact">Kirim kebutuhan <b>→</b></a>
         </div>
       </div>
     </section>
 
     <section class="process section" id="process">
       <div class="process-bg" aria-hidden="true"></div>
+      <div class="process-grid" aria-hidden="true"></div>
       <div class="section-shell process-shell">
         <div class="process-head reveal">
-          <span class="eyebrow light">HOW WE WORK</span>
-          <h2>Proses pengadaan yang terstruktur, transparan, dan mudah dikendalikan.</h2>
-          <p>Dari kebutuhan awal sampai serah terima, setiap tahapan disusun untuk menjaga spesifikasi, biaya, jadwal, dan dokumentasi tetap terkendali.</p>
+          <span class="eyebrow light">MUDAMAS WORKING SYSTEM</span>
+          <h2>Proses terstruktur untuk menjaga <span>spesifikasi, biaya, jadwal, dan hasil.</span></h2>
+          <p>Dari kebutuhan awal sampai serah terima, setiap tahapan dirancang agar keputusan lebih cepat, risiko supply lebih terukur, dan progres pekerjaan mudah dikendalikan.</p>
         </div>
 
         <div class="process-rail reveal delay-1">
-          <article><span>01</span><strong>Requirement</strong><p>Memahami scope, spesifikasi, kuantitas, timeline, dan target proyek.</p></article>
-          <article><span>02</span><strong>Sourcing</strong><p>Mencari pemasok, principal, dan opsi produk yang paling sesuai.</p></article>
-          <article><span>03</span><strong>Commercial</strong><p>Komparasi harga, HPP, lead time, syarat pembayaran, dan risiko supply.</p></article>
-          <article><span>04</span><strong>Procurement & Execution</strong><p>Pengadaan, koordinasi vendor, pengiriman, instalasi atau pekerjaan lapangan.</p></article>
-          <article><span>05</span><strong>Handover & Support</strong><p>Dokumentasi, serah terima, serta koordinasi after-sales bila diperlukan.</p></article>
+          <article><div class="process-number">01</div><span>REQUIREMENT</span><strong>Memahami Kebutuhan</strong><p>Scope, spesifikasi, kuantitas, timeline, lokasi, dokumen dan target proyek.</p></article>
+          <article><div class="process-number">02</div><span>SOURCING</span><strong>Mencari Opsi Terbaik</strong><p>Supplier/principal, produk alternatif, lead time, ketersediaan dan kesesuaian teknis.</p></article>
+          <article><div class="process-number">03</div><span>COMMERCIAL</span><strong>Validasi &amp; Penawaran</strong><p>Komparasi harga, costing, syarat pembayaran, spesifikasi dan risiko supply.</p></article>
+          <article><div class="process-number">04</div><span>EXECUTION</span><strong>Pengadaan / Pelaksanaan</strong><p>Procurement, vendor coordination, delivery, instalasi atau pekerjaan lapangan.</p></article>
+          <article><div class="process-number">05</div><span>HANDOVER</span><strong>Serah Terima &amp; Support</strong><p>Dokumentasi, penyelesaian, handover dan koordinasi purna jual bila diperlukan.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="section-shell">
+        <div class="section-title-row reveal">
+          <div>
+            <span class="eyebrow">WORKING CHARACTER</span>
+            <h2>Fokus pada kebutuhan nyata, <span>bukan sekadar katalog.</span></h2>
+          </div>
+          <p>
+            Setiap kebutuhan dapat memiliki spesifikasi, lokasi, anggaran, vendor, dan risiko berbeda. Karena itu Mudamas bekerja sebagai problem-solver pengadaan: memetakan kebutuhan, mencari opsi, mengoordinasikan pihak terkait, lalu memastikan penyelesaian.
+          </p>
+        </div>
+
+        <div class="project-showcase">
+          <article class="project-card project-01 reveal">
+            <div class="project-shade"></div>
+            <div class="project-copy"><span>PROCUREMENT</span><h3>Multi-category Supply</h3><p>Sourcing, pengadaan dan delivery untuk berbagai kebutuhan barang.</p></div>
+          </article>
+          <article class="project-card project-02 reveal delay-1">
+            <div class="project-shade"></div>
+            <div class="project-copy"><span>CONTRACTOR</span><h3>Project Execution</h3><p>Renovasi, instalasi, pekerjaan lapangan dan koordinasi vendor.</p></div>
+          </article>
+          <article class="project-card project-03 reveal delay-2">
+            <div class="project-shade"></div>
+            <div class="project-copy"><span>LOGISTICS</span><h3>Delivery &amp; Handover</h3><p>Koordinasi pengiriman, dokumentasi dan penyelesaian pekerjaan.</p></div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="company section" id="company">
       <div class="section-shell company-grid">
-        <div class="company-copy reveal">
+        <div class="company-visual reveal" aria-hidden="true">
+          <div class="company-image"></div>
+          <div class="company-badge"><strong>EST. 2019</strong><span>Batam • Indonesia</span></div>
+          <div class="company-mini"><span>GENERAL SUPPLIER</span><span>CONTRACTOR</span><span>PROCUREMENT</span></div>
+        </div>
+
+        <div class="company-copy reveal delay-1">
           <span class="eyebrow orange">COMPANY PROFILE</span>
-          <h2>Partner pengadaan yang dirancang untuk <span>bergerak cepat</span> dan tetap terukur.</h2>
-          <p>CV MUDAMAS MANDIRI bergerak di bidang General Supplier, Contractor, dan Procurement Service. Perusahaan melayani kebutuhan instansi Pemerintah, BUMN, dan sektor Swasta dengan dukungan pemasok serta principal di berbagai kategori.</p>
+          <h2>Partner pengadaan yang <span>cepat bergerak, luas jaringannya,</span> dan tetap terukur.</h2>
+          <p>
+            CV MUDAMAS MANDIRI bergerak di bidang General Supplier, Contractor, dan Procurement Service. Perusahaan melayani kebutuhan Pemerintah, BUMN, dan Swasta dengan pendekatan yang fleksibel, berbasis jaringan supplier/principal, serta fokus pada ketepatan spesifikasi dan penyelesaian pekerjaan.
+          </p>
+
           <div class="company-values">
             <span>Integrity</span><span>Quality</span><span>Teamwork</span><span>Innovation</span><span>Customer Focus</span>
           </div>
-        </div>
 
-        <div class="company-panel reveal delay-1">
-          <div class="panel-heading"><span>Corporate Snapshot</span><b>CV MUDAMAS MANDIRI</b></div>
-          <dl>
-            <div><dt>Bentuk Usaha</dt><dd>CV / Commanditaire Vennootschap</dd></div>
-            <div><dt>Tahun Berdiri</dt><dd>17 Januari 2019</dd></div>
-            <div><dt>Status</dt><dd>Aktif</dd></div>
-            <div><dt>Investment Status</dt><dd>PMDN</dd></div>
-            <div><dt>Business Scale</dt><dd>Usaha Kecil</dd></div>
-            <div><dt>KBLI Aktif</dt><dd>37 klasifikasi bidang usaha</dd></div>
-          </dl>
+          <div class="company-facts">
+            <div><span>Bentuk Usaha</span><strong>CV / Commanditaire Vennootschap</strong></div>
+            <div><span>Tahun Berdiri</span><strong>17 Januari 2019</strong></div>
+            <div><span>Status</span><strong>Aktif • PMDN • Usaha Kecil</strong></div>
+            <div><span>KBLI Aktif</span><strong>37 klasifikasi bidang usaha</strong></div>
+          </div>
+
           <div class="verification-row">
-            <span>INAPROC V6</span><span>SPSE</span><span>SiKaP</span><span>OSS</span><span>TKDN Ready</span>
+            <span>INAPROC V6</span><span>SPSE</span><span>SiKaP</span><span>OSS</span><span>TKDN SUPPORT</span>
           </div>
         </div>
       </div>
@@ -235,15 +310,19 @@
 
     <section class="cta" id="contact">
       <div class="cta-bg" aria-hidden="true"></div>
+      <div class="cta-grid" aria-hidden="true"></div>
       <div class="cta-inner reveal">
         <div>
-          <span class="eyebrow light">LET'S WORK TOGETHER</span>
-          <h2>Punya kebutuhan pengadaan atau proyek?</h2>
-          <p>Kirim kebutuhan Anda. Tim Mudamas akan membantu memetakan spesifikasi, sourcing, opsi pemasok, estimasi biaya, dan rencana pelaksanaan.</p>
+          <span class="eyebrow light">START WITH YOUR REQUIREMENT</span>
+          <h2>Sampaikan kebutuhan.<br><span>Kami bantu cari jalannya.</span></h2>
+          <p>Kirim spesifikasi, daftar barang, scope pekerjaan, atau kebutuhan awal Anda. Tim Mudamas akan membantu memetakan opsi produk/supplier, estimasi komersial, serta rencana pengadaan atau pelaksanaan.</p>
         </div>
-        <div class="cta-actions">
-          <a href="mailto:info@mudamas.id" class="btn btn-white">info@mudamas.id</a>
+        <div class="cta-card">
+          <span class="cta-label">READY TO DISCUSS</span>
+          <strong>Mulai dari RFQ, spesifikasi, atau scope pekerjaan.</strong>
+          <a href="mailto:info@mudamas.id" class="btn btn-white">info@mudamas.id <span>→</span></a>
           <a href="mailto:tender@mudamas.id" class="btn btn-outline-white">tender@mudamas.id</a>
+          <small>Atau gunakan tombol WhatsApp di kanan bawah.</small>
         </div>
       </div>
     </section>
@@ -252,7 +331,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="logo.png" alt="Logo Mudamas" />
+        <img src="logo.png" alt="Logo Mudamas Mandiri" />
         <div><strong>MUDAMAS MANDIRI</strong><span>General Supplier • Contractor • Procurement Service</span></div>
       </div>
       <div class="footer-meta">
@@ -261,9 +340,6 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
-
-  <!-- Floating WhatsApp -->
   <div class="wa-float" aria-label="Kontak WhatsApp CV Mudamas Mandiri">
     <a class="wa-button" href="https://wa.me/6281277842635?text=Halo%20CV%20Mudamas%20Mandiri%2C%20saya%20ingin%20menanyakan%20informasi%20lebih%20lanjut." target="_blank" rel="noopener noreferrer" aria-label="Hubungi Admin 1 melalui WhatsApp">
       <span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16.04 3C8.86 3 3.03 8.73 3.03 15.81c0 2.25.6 4.44 1.73 6.36L3 28.6l6.62-1.73a13.17 13.17 0 0 0 6.41 1.64h.01C23.22 28.51 29 22.77 29 15.7 29 8.63 23.22 3 16.04 3Zm0 23.35h-.01a11.03 11.03 0 0 1-5.62-1.52l-.4-.24-3.93 1.03 1.05-3.78-.26-.39a10.63 10.63 0 0 1-1.7-5.75c0-5.86 4.86-10.63 10.85-10.63 2.9 0 5.63 1.1 7.68 3.1a10.46 10.46 0 0 1 3.18 7.55c0 5.86-4.86 10.63-10.84 10.63Zm5.95-7.96c-.33-.16-1.93-.94-2.23-1.05-.3-.11-.52-.16-.74.16-.22.32-.86 1.05-1.05 1.27-.19.22-.38.24-.71.08-.33-.16-1.38-.5-2.63-1.6a9.72 9.72 0 0 1-1.82-2.23c-.19-.32-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.32.33-.54.11-.22.05-.41-.03-.57-.08-.16-.74-1.76-1.01-2.4-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.32-1.14 1.1-1.14 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.43 5.53 4.81.77.33 1.37.52 1.84.67.77.24 1.47.21 2.03.13.62-.09 1.93-.78 2.2-1.54.27-.76.27-1.41.19-1.54-.08-.13-.3-.21-.63-.37Z"/></svg></span>
@@ -275,5 +351,6 @@
     </a>
   </div>
 
+  <script src="app.js"></script>
 </body>
 </html>
